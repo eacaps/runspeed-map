@@ -1,24 +1,30 @@
+import React, { PureComponent } from 'react';
 
-class ScaleCtrl {
+export default class ScaleComponent extends PureComponent {
   constructor() {
-    this.scale = 'scale goes here';
+    super();
   }
-}
-
-export default class ScaleComponent {
-  constructor() {
-    this.controller = new ScaleCtrl();
-  }
-  component() {
-    return () => {
-      return {
-        template: `<span>{{app.scale}}</span>`,
-        controller: 'ScaleCtrl',
-        controllerAs: 'app'
+  render() {
+    const scale = this.props.scale;
+    const gradient = [];
+    for(const color of scale) {
+      const style = {
+        backgroundColor: color,
+        width: '10px',
+        height: '10px',
+        display: 'inline-block'
       };
+      gradient.push(
+        <div key={color} style={style} />
+      )
     }
-  }
-  ctrl() {
-    return ScaleCtrl;
+    return (
+      <div>
+        <span>Pace(minutes/mile): </span>
+        <span>{this.props.range.min} </span>
+        {gradient}
+        <span> {this.props.range.max}</span>
+      </div>
+    );
   }
 }

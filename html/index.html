@@ -1,4 +1,4 @@
-<html ng-app="app">
+<html>
   <head>
     <title>Runspeed Map</title>
     <style>
@@ -11,9 +11,9 @@
   </head>
   <body>
      <div id="mapid"></div>
-     <div>
+     <div style='display: flex;justify-content: space-between'>
        <input type="file" id='file'/>
-       <scale></scale>
+       <div id='scale'/>
      </div>
   </body>
   <script src="../dist/bundle.js">

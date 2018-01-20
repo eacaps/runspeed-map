@@ -1,5 +1,6 @@
 import TcxParser from 'tcx';
-import angular from 'angular';
+import ReactDOM from 'react-dom';
+import React from 'react';
 import Utils from './utils';
 import SpeedMap from './speedmap';
 import ScaleComponent from './scalecomponent';
@@ -29,11 +30,5 @@ fetch('../data/activity_925308754.geojson').then((response) => {
   map.processGeojson(geojson);
 });
 
-const MODULE_NAME = 'app';
-const component = new ScaleComponent();
-
-angular.module(MODULE_NAME, [])
-  .directive('scale', component.component())
-  .controller('ScaleCtrl', component.ctrl());
-
-export default MODULE_NAME;
+const scale_element = document.getElementById('scale');
+ReactDOM.render(<ScaleComponent range={Utils.getSpeedRange()} scale={Utils.getColorScale()} />, scale_element);
