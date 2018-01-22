@@ -38,7 +38,7 @@ export default class SpeedMap {
       // reverse reverses in place
       const latlngs = [first.reverse(), second.reverse()];
 
-      const speed = Utils.getSpeed(first, second, seconds_per_segment);
+      const speed = Utils.getSpeed(first[0], first[1], second[0], second[1], seconds_per_segment);
       var style = this.styleSpeed(speed);
       const line = new L.Polyline(latlngs, style);
       // undo reverse

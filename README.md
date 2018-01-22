@@ -14,6 +14,7 @@ Running this app requires git and a relatively recent version of node and npm.
 This will start the app at http://localhost:3000/.
 
 ## dev
+    $ npm run dev
 Dev mode for this runs watchify to catch changes to the client side files. I went with browserify for now since it is easier to manage for simple projects - its command line based instead of webpack's config file based system.
 
 ## testing
