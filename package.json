@@ -17,7 +17,6 @@
     "watchify": "^3.9.0"
   },
   "scripts": {
-    "test": "test",
     "start": "node server.js",
     "bundle": "browserify src/app.js -o dist/bundle.js -t babelify",
     "watch": "watchify src/app.js -o dist/bundle.js -t babelify",
