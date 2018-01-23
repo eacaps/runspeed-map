@@ -1,6 +1,6 @@
-import TcxParser from 'tcx';
 import ReactDOM from 'react-dom';
 import React from 'react';
+import TcxFileParser from './tcxfileparser';
 import Utils from './utils';
 import SpeedMap from './speedmap';
 import ScaleComponent from './scalecomponent';
@@ -28,9 +28,7 @@ document.getElementById('file').onchange = (event) => {
     var parser = new DOMParser();
     var doc = parser.parseFromString(fr.result, "text/xml");
     // a tcx file dom, via xmldom
-    const geojson = TcxParser(doc);
-    console.log(geojson);
-    map.processGeojson(geojson);
+    new TcxFileParser().addToMap(doc, map);
   };
   fr.readAsText(file);
 }
@@ -39,8 +37,8 @@ document.getElementById('file').onchange = (event) => {
 fetch('../data/activity_925308754.geojson').then((response) => {
   return response.text();
 }).then((text) => {
-  const geojson = JSON.parse(text);
-  map.processGeojson(geojson);
+    const geojson = JSON.parse(text);
+    new TcxFileParser().processFeatures(geojson, map);
 });
 
 const scale_element = document.getElementById('scale');
