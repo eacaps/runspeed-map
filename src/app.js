@@ -25,8 +25,8 @@ document.getElementById('file').onchange = (event) => {
   const file = file_input.files[0];
   const fr = new FileReader();
   fr.onload = () => {
-    var parser = new DOMParser();
-    var doc = parser.parseFromString(fr.result, "text/xml");
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(fr.result, "text/xml");
     // a tcx file dom, via xmldom
     new TcxFileParser().addToMap(doc, map);
   };
@@ -34,11 +34,13 @@ document.getElementById('file').onchange = (event) => {
 }
 
 // fetch charleston data
-fetch('../data/activity_925308754.geojson').then((response) => {
+fetch('../data/activity_925308754.tcx').then((response) => {
   return response.text();
 }).then((text) => {
-    const geojson = JSON.parse(text);
-    new TcxFileParser().processFeatures(geojson, map);
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(text, "text/xml");
+  // a tcx file dom, via xmldom
+  new TcxFileParser().addToMap(doc, map);
 });
 
 const scale_element = document.getElementById('scale');
