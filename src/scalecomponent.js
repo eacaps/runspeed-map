@@ -20,7 +20,6 @@ export default class ScaleComponent extends PureComponent {
     }
     return (
       <div>
-        <span>Pace(minutes/mile): </span>
         <span>{this.props.range.min} </span>
         {gradient}
         <span> {this.props.range.max}</span>
