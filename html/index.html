@@ -19,10 +19,45 @@
       input[type="file"] {
         display: none;
       }
+      .scaleContainer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        bottom: 0px;
+        z-index: 999;
+        width: 100%;
+      }
+      .centeredScale {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+      }
+      .scaleBox {
+        box-shadow: rgba(0, 0, 0, 0.1) 0px -2px 5px;
+        background-color: rgb(238, 238, 238);
+      }
+      .scaleHeader {
+        background-color: var(--mdc-theme-primary,#6200ee);
+        display: flex;
+        align-items: center;
+        height: 30px
+      }
+      .paceText {
+        margin-left: 12px;
+        color: #fff;
+      }
+      .rangeBox {
+        height:30px;
+        margin-left:12px;
+        margin-right:12px;
+        display:flex;
+        align-items:center;
+      }
     </style>
   </head>
   <body class="mdc-typography" style='font-family: Arial;margin: 0;'>
-
     <div style='display:flex; flex-direction:column'>
       <header class="mdc-toolbar demo-toolbar">
         <div class="mdc-toolbar__row">
@@ -42,18 +77,7 @@
         </div>
       </header>
       <div id='mapid'></div>
-      <div style='display: flex;justify-content: space-between; align-items: center;position:fixed;bottom:0px;z-index:999;width:100%;'>
-        <div style='width:100%;height:100%;display:flex;justify-content:center;'>
-          <div style='box-shadow:rgba(0, 0, 0, 0.1) 0px -2px 5px;background-color:rgb(238, 238, 238);'>
-            <div style='background-color:var(--mdc-theme-primary,#6200ee);display:flex;align-items:center;height:30px'>
-              <span style='margin-left: 12px;color: #fff'>Pace(min/mile)</span>
-            </div>
-            <div style='height:30px;margin-left:12px;margin-right:12px;display:flex;align-items:center;'>
-              <div id='scale' />
-            </div>
-          </div>
-        </div>
-      </div>
+      <div id='scale' />
     </div>
   </body>
   <script src='../dist/bundle.js'>

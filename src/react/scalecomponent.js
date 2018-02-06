@@ -19,10 +19,21 @@ export default class ScaleComponent extends PureComponent {
       )
     }
     return (
-      <div>
-        <span>{this.props.range.min} </span>
-        {gradient}
-        <span> {this.props.range.max}</span>
+      <div className='scaleContainer'>
+        <div className='centeredScale'>
+          <div className='scaleBox'>
+            <div className='scaleHeader'>
+              <span className='paceText'>Pace(min/mile)</span>
+            </div>
+            <div className='rangeBox'>
+              <div>
+                <span>{this.props.range.min} </span>
+                {gradient}
+                <span> {this.props.range.max}</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

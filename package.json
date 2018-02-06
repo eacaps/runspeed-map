@@ -18,8 +18,8 @@
   },
   "scripts": {
     "start": "node server.js",
-    "bundle": "browserify src/app.js -o dist/bundle.js -t babelify",
-    "watch": "watchify src/app.js -o dist/bundle.js -t babelify",
+    "bundle": "browserify src/react/react-app.js -o dist/bundle.js -t babelify",
+    "watch": "watchify src/react/react-app.js -o dist/bundle.js -t babelify",
     "dev": "npm start & npm run watch",
     "lint": "eslint src/",
     "postinstall": "npm run bundle"
