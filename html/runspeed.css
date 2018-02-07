@@ -1,0 +1,42 @@
+:root {
+  --mdc-theme-primary: #0e4ead;
+}
+input[type="file"] {
+  display: none;
+}
+.scaleContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  bottom: 0px;
+  z-index: 999;
+  width: 100%;
+}
+.centeredScale {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+.scaleBox {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px -2px 5px;
+  background-color: rgb(238, 238, 238);
+}
+.scaleHeader {
+  background-color: var(--mdc-theme-primary,#6200ee);
+  display: flex;
+  align-items: center;
+  height: 30px
+}
+.paceText {
+  margin-left: 12px;
+  color: #fff;
+}
+.rangeBox {
+  height:30px;
+  margin-left:12px;
+  margin-right:12px;
+  display:flex;
+  align-items:center;
+}

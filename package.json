@@ -4,6 +4,7 @@
   "description": "Run speed visualization based on Garmin Connect tcx files.",
   "main": "server.js",
   "dependencies": {
+    "angular": "^1.6.8",
     "babel-core": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
@@ -14,12 +15,17 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "tcx": "^0.1.0",
-    "watchify": "^3.9.0"
+    "watchify": "^3.9.0",
+    "webpack": "^3.10.0"
   },
   "scripts": {
     "start": "node server.js",
-    "bundle": "browserify src/react/react-app.js -o dist/bundle.js -t babelify",
-    "watch": "watchify src/react/react-app.js -o dist/bundle.js -t babelify",
+    "react:bundle": "browserify src/react/react-app.js -o dist/react-bundle.js -t babelify",
+    "react:watch": "watchify src/react/react-app.js -o dist/react-bundle.js -t babelify",
+    "angularjs:bundle": "webpack src/angularjs/angularjs-app.js dist/angularjs-bundle.js",
+    "angularjs:watch": "webpack src/angularjs/angularjs-app.js dist/angularjs-bundle.js -w",
+    "bundle": "npm run react:bundle & npm run angularjs:bundle",
+    "watch": "npm run react:watch & npm run angularjs:watch",
     "dev": "npm start & npm run watch",
     "lint": "eslint src/",
     "postinstall": "npm run bundle"
